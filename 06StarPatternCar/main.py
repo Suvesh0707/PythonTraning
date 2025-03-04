@@ -1,19 +1,32 @@
-rows = 13
-columns = 40
-print("1. car \n2. jeep")
+rows = 16
+columns = 60
+print("1. car \n2. jeep ")
 car = int(input("Enter your choice: "))
+wheels = int(input("Enter how many wheels you require (2 or 4): "))
 
 if car == 1:
     for i in range(rows):
         for j in range(columns):
             if (
-                (i == 0 and 10 <= j <= 29) or
-                (i == 1 and (j == 9 or j == 30)) or
-                (i == 2 and (8 <= j <= 31)) or
-                (i == 3 and (7 <= j <= 32)) or
-                (4 <= i <= 7 and (2 <= j <= 37)) or
-                ((i == 8 or i == 10) and (j == 5 or j == 7 or j == 29 or j == 31)) or 
-                (i == 9 and (4 <= j <= 8 or 28 <= j <= 32))
+                (i == 0 and 12 <= j <= 31) or
+                (i == 1 and (j == 11 or j == 32)) or
+                (i == 2 and (j == 10 or j == 33)) or
+                (i == 3 and (j == 9 or j == 34)) or
+                (4 <= i <= 7 and 0 <= j <= 49)
+            ):
+                print("*", end="")
+            elif wheels == 2 and (
+                ((i == 8 or i == 10) and (j == 8 or j == 10)) or
+                (i == 9 and (7 <= j <= 11)) or
+                ((i == 8 or i == 10) and (j == 38 or j == 40)) or
+                (i == 9 and (37 <= j <= 41))
+            ):
+                print("*", end="")
+            elif wheels == 4 and (
+                ((i == 8 or i == 10) and (j == 5 or j == 8 or j == 13 or j == 16)) or
+                (i == 9 and (4 <= j <= 9 or 12 <= j <= 17)) or
+                ((i == 8 or i == 10) and (j == 35 or j == 38 or j == 43 or j == 46)) or
+                (i == 9 and (34 <= j <= 39 or 42 <= j <= 47))
             ):
                 print("*", end="")
             else:
@@ -24,16 +37,31 @@ elif car == 2:
     for i in range(rows):
         for j in range(columns):
             if (
-                (4 <= i <= 6 and 4 <= j <= 20) or
-                (7 <= i <= 9 and 4 <= j <= 30) or
-                (i == 10 and (j == 6 or j == 9 or j == 22 or j == 25)) or
-                (i == 11 and (5 <= j <= 10 or 21 <= j <= 26)) or
-                (i == 12 and (j == 6 or j == 9 or j == 22 or j == 25))
+                (i == 0 and 10 <= j <= 45) or
+                (i == 1 and (j == 8 or j == 46)) or
+                (i == 2 and (j == 6 or j == 47)) or
+                (i == 3 and 0 <= j <= 18) or
+                (3 <= i <= 5 and 0 <= j <= 50) or
+                (i == 6 and 0 <= j <= 51) or
+                (i == 7 and 0 <= j <= 51)
+            ):
+                print("*", end="")
+            elif wheels == 2 and (
+                ((i == 8 or i == 10) and (j == 8 or j == 10)) or
+                (i == 9 and (7 <= j <= 11)) or
+                ((i == 8 or i == 10) and (j == 38 or j == 40)) or
+                (i == 9 and (37 <= j <= 41))
+            ):
+                print("*", end="")
+            elif wheels == 4 and (
+                ((i == 8 or i == 10) and (j == 5 or j == 8 or j == 13 or j == 16)) or
+                (i == 9 and (4 <= j <= 9 or 12 <= j <= 17)) or
+                ((i == 8 or i == 10) and (j == 35 or j == 38 or j == 43 or j == 46)) or
+                (i == 9 and (34 <= j <= 39 or 42 <= j <= 47))
             ):
                 print("*", end="")
             else:
                 print(" ", end="")
         print()
-
 else:
     print("Invalid input")
