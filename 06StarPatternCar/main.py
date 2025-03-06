@@ -1,10 +1,18 @@
 rows = 16
 columns = 60
-print("1. car \n2. jeep ")
-car = int(input("Enter your choice: "))
-wheels = int(input("Enter how many wheels you require (2 or 4): "))
 
-if car == 1:
+def get_user_input():
+    print("1. car \n2. jeep ")
+    car = int(input("Enter your choice: "))
+    wheels = int(input("Enter how many wheels you require (2 or 4): "))
+    while car not in [1, 2] or wheels not in [2, 4]:
+        print("Invalid input! Please enter again.")
+        print("1. car \n2. jeep ")
+        car = int(input("Enter your choice: "))
+        wheels = int(input("Enter how many wheels you require (2 or 4): "))
+    return car, wheels
+
+def print_car(wheels):
     for i in range(rows):
         for j in range(columns):
             if (
@@ -33,7 +41,7 @@ if car == 1:
                 print(" ", end="")
         print()
 
-elif car == 2:
+def print_jeep(wheels):
     for i in range(rows):
         for j in range(columns):
             if (
@@ -63,5 +71,12 @@ elif car == 2:
             else:
                 print(" ", end="")
         print()
-else:
-    print("Invalid input")
+
+def main():
+    car, wheels = get_user_input()
+    if car == 1:
+        print_car(wheels)
+    elif car == 2:
+        print_jeep(wheels)
+
+main()
